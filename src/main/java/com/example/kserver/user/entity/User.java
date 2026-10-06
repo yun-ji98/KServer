@@ -1,4 +1,4 @@
-package com.example.kserver.menu.entity;
+package com.example.kserver.user.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,17 +11,18 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Menu {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private Integer price;
+    private Integer point;
 
-    public Menu(String name, Integer price) {
-        this.name = name;
-        this.price = price;
+    public User(Long userId, Integer point) {
+        this.point = point;
+    }
+
+    public void chargePoint(Integer amount) {
+        this.point += amount;
     }
 }
-
